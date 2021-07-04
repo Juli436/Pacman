@@ -7,15 +7,6 @@
  */
 public class Main
 {
-    public int world[][];
-
-
-    public Main()
-    {
-        world = new int[15][15];
-
-    }
-
     public static void main(String[] args){
         System.out.println("Hello World");
         

@@ -1,24 +1,9 @@
 
-/**
- * Write a description of class Main here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Main
-{
-    public int world[][];
+public class Main {
 
-
-    public Main()
-    {
-        world = new int[15][15];
-
-    }
-
-    public static void main(String[] args){
-        System.out.println("Hello World");
-        
+    public static void main(String[] args) {
+        Window window = new Window();
+        window.setVisible(true);
 
     }
 }

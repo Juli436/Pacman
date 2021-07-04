@@ -7,19 +7,18 @@
  */
 public class Main
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public int world[][];
 
-    /**
-     * Constructor for objects of class Main
-     */
+
     public Main()
     {
+        world = new int[15][15];
 
     }
 
     public static void main(String[] args){
         System.out.println("Hello World");
+        
 
     }
 }

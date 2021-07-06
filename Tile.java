@@ -7,27 +7,16 @@
  */
 public class Tile
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public final static int size= 20;
+    public int x;
+    public int y;
+    public int type;
 
-    /**
-     * Constructor for objects of class Tile
-     */
-    public Tile()
-    {
-        // initialise instance variables
-        x = 0;
+    public Tile(int x, int y, int type){
+    this.x = x;
+    this.y = y;
+    this.type = type;
+    
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+   
 }

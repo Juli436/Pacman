@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Gui extends JPanel{
-    public static final int width = 600, height = 600;
+    public static final int width = 625, height = 650;
     
     public JFrame frame;
 

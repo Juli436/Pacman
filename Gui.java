@@ -15,6 +15,8 @@ public class Gui extends JPanel{
         this.setBounds(0, 0, width - 12, height - 12);
         this.setVisible(true);
         frame.add(this);
+        
+        frame.addKeyListener(new KeyHandler());
 
         frame.setVisible(true);
     }

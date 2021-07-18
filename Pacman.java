@@ -1,4 +1,10 @@
-
+import java.awt.*;
+import java.util.List;
+import java.awt.Font;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 /**
  * Write a description of class Pacman here.
  *
@@ -8,26 +14,103 @@
 public class Pacman
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private double x;
+    private double y;
+    private int r;
+
+    public static final int radius = 15;
+    public Tile tile;
+
+    public int points;
+
+    public static final int pointsdot = 10;
 
     /**
      * Constructor for objects of class Pacman
      */
-    public Pacman()
-    {
-        // initialise instance variables
-        x = 0;
+    public Pacman(double x, double y, int r, Tile tile) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        //oben = 1, im Uhrzeigersinn
+        this.tile = tile;
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void Draw(Graphics graphics){
+        graphics.setColor(Color.YELLOW);
+        graphics.fillOval((int)(x*Double.valueOf(Tile.size)), (int)(y*Double.valueOf(Tile.size)), radius, radius);
+    }
+
+    public void PacmanBewegen() {
+        //if(((position[0] <30 ) && (position[1] < 30) && ((position[0] > 0) && (position[1] > 0)))){
+
+        if(r == 1) {
+            y = y+0.05;
+        }
+        else
+        {
+            if(r == 3) {
+                y = y-0.05;
+            }
+            else
+            {
+                if(r== 2) {
+                    x = x+0.05;
+                }
+                else
+                {
+                    x = x-0.05;
+                }
+
+            }
+        }
+        //else{}
+    }
+
+    public void fressen() {
+        if(IstFood()) {
+            tile.type--;
+            points = points + pointsdot;
+        }
+
+    }
+
+    public boolean IstFood(){
+        Boolean[] b = toBinary(tile.type);
+        return b[0];
+
+    }
+
+    public boolean IstAmRand() {
+        Boolean[] b = toBinary(tile.type);
+        if(b[2]||b[3]||b[4]||b[5])
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private Boolean[] toBinary(int decimal){
+        Boolean[] b = new Boolean[16];
+        for(int i= 0; i< b.length; i++){
+            b[i] = false;
+        }
+        int index = 0;    
+        while(decimal > 0){    
+            if(decimal%2 > 0){
+                b[index] = true;
+            }
+            else{
+                b[index] = false;
+            }
+            index++;
+            decimal = decimal/2;    
+        } 
+        return b;
+
     }
 }

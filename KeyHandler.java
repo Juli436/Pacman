@@ -1,10 +1,13 @@
-import java.awt.event.KeyEvent;
+ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
-    
+    private World world;
     //TODO: Replace System.out.println with Movement
+    public KeyHandler(){
+    world = World.getInstance();
     
+    }
     
     @Override
     public void keyPressed(KeyEvent e) {

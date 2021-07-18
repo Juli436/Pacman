@@ -7,6 +7,7 @@
  */
 public class Timer extends Thread
 {
+
     private Pacman pacman;
     public Timer(Pacman pacman){
         this.pacman = pacman;
@@ -15,12 +16,13 @@ public class Timer extends Thread
     public void run() {
 
         try
-        { while(true){
+        { 
                 sleep(15);
                 //System.out.println("Hello World!"); 
                 pacman.PacmanBewegen();
                 pacman.fressen();
-            }
+            
+
         }
         catch (InterruptedException ex) {}
     }

@@ -46,21 +46,21 @@ public class Pacman
         //if(((position[0] <30 ) && (position[1] < 30) && ((position[0] > 0) && (position[1] > 0)))){
 
         if(r == 1) {
-            y = y+0.05;
+            y = y+0.1;
         }
         else
         {
             if(r == 3) {
-                y = y-0.05;
+                y = y-0.1;
             }
             else
             {
                 if(r== 2) {
-                    x = x+0.05;
+                    x = x+0.1;
                 }
                 else
                 {
-                    x = x-0.05;
+                    x = x-0.1;
                 }
 
             }

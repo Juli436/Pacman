@@ -66,13 +66,21 @@ public class Pacman
             }
         }
         //else{}
+        tile = getTile();
+
     }
 
     public void fressen() {
         if(IstFood()) {
             tile.type--;
             points = points + pointsdot;
+            World.getInstance().numfood--;
         }
+
+    }
+
+    private Tile getTile(){
+        return World.getInstance().tiles[(int)Math.round(x)][(int)Math.round(y)];
 
     }
 

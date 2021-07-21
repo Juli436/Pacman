@@ -15,11 +15,12 @@ public class World
     public Timer timer;
     public int lastKey;
     public static final int x = 30, y = 30; 
+    public int numfood;
 
     public static World instance;
 
     public World(){
-        
+
         tiles = new Tile[x][y];
         for(int i=0; i < tiles.length; i++){
             for(int j=0; j < tiles.length; j++){
@@ -48,6 +49,16 @@ public class World
         }
         Tile start = tiles[15][15];
         pacman = new Pacman(start.x, start.y, 1, start);
+        numfood = 0;
+        for(int i=0; i < tiles.length; i++){
+            for(int j=0; j < tiles.length; j++){
+                Boolean[] b = toBinary(tiles[i][j].type);
+                if(b[0]){
+                    numfood ++;
+                }
+
+            }
+        }
         timer = new Timer(pacman);
         timer.start();
     }
@@ -79,28 +90,21 @@ public class World
                 // graphics.setColor(new Color(0, 0, 0));
                 // }
                 if(b[1]){
-                 graphics.setColor(new Color(0, 0, 250));
+                    graphics.setColor(new Color(0, 0, 250));
                 }
 
                 graphics.fillRect(i*Tile.size, j*Tile.size, Tile.size, Tile.size);
-                
-                
+
 
             }
 
         }
         pacman.Draw(graphics);
     }
-    
-    public void keyInput(int key){
-    switch(key){
-    case 1: 
-    
-    
-    }
-    
-    }
 
+    public void keyInput(int key){
+        lastKey = key;
+    }
     private Boolean[] toBinary(int decimal){
         Boolean[] b = new Boolean[16];
         for(int i= 0; i< b.length; i++){

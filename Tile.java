@@ -1,3 +1,4 @@
+import java.util.*;
 
 /**
  * Write a description of class Tile here.
@@ -31,6 +32,27 @@ public class Tile
     
     public void setType(int type){
     this.type = type;
+    }
+    
+    public java.util.List<Tile> GetNeighbors() {
+        java.util.List<Tile> neighbors = new ArrayList<>();
+
+        for (int i=-1; i<=1; i++) {
+            for (int j=-1; j<=1; j++) {
+                if (Math.abs(i) - Math.abs(j) ==  0) {
+                    continue;
+                }
+                if (x + i < 0 || x + i >= World.x || y + j < 0 || y + j >= World.y) { // prevent index out of bounds exception
+                    continue;
+                }
+                Tile tile = World.getInstance().tiles[x + i][y + j];
+
+                if(tile.type != 1) { // check if tile is not wall
+                    neighbors.add(tile);
+                }
+            }
+        }
+        return neighbors;
     }
    
 }

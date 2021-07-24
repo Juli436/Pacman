@@ -43,51 +43,47 @@ public class Pacman
     }
 
     public void PacmanBewegen() {
-        //if(((position[0] <30 ) && (position[1] < 30) && ((position[0] > 0) && (position[1] > 0)))){
-
-        if(r == 1) {
-            y = y+0.1;
-        }
-        else
-        {
-            if(r == 3) {
-                y = y-0.1;
-            }
-            else
-            {
-                if(r== 2) {
-                    x = x+0.1;
+        if(!IstObenoderUntenAmRand()) {
+            if(!IstWand()) {
+                if(r == 1) {
+                    y = y+0.1;
                 }
                 else
                 {
-                    x = x-0.1;
+                    if(r == 3) {
+                        y = y-0.1;
+                    }
+                    else
+                    {
+                        if(r== 2) {
+                            x = x+0.1;
+                        }
+                        else
+                        {
+                            x = x-0.1;
+                        }
+                    }
                 }
-
             }
         }
-        //else{}
         tile = getTile();
-
     }
-
+    
+    
+    public Tile getTile(){
+        return World.getInstance().tiles[(int)Math.round(x)][(int)Math.round(y)];    
+    }
+    
     public void fressen() {
         if(IstFood()) {
             tile.type--;
             points = points + pointsdot;
-            World.getInstance().numfood--;
         }
-
-    }
-
-    private Tile getTile(){
-        return World.getInstance().tiles[(int)Math.round(x)][(int)Math.round(y)];
-
     }
 
     public boolean IstFood(){
         Boolean[] b = toBinary(tile.type);
         return b[0];
-
     }
 
     public boolean IstAmRand() {
@@ -101,7 +97,31 @@ public class Pacman
             return false;
         }
     }
+    
+    public boolean IstObenoderUntenAmRand() {
+        Boolean[] b = toBinary(tile.type);
+        if(b[2]||b[4])
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean IstWand() {
+        Boolean[] b = toBinary(tile.type);
+        if(b[1]) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
+    }
+        
     private Boolean[] toBinary(int decimal){
         Boolean[] b = new Boolean[16];
         for(int i= 0; i< b.length; i++){

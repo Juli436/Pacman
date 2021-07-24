@@ -43,10 +43,10 @@ public class World
         }
 
         //adding a test wall
-        for(int i=5; i < 26; i++){
-            tiles[i][15].type = tiles[i][15].type -1 +2;
+        // for(int i=5; i < 26; i++){
+            // tiles[i][15].type = tiles[i][15].type -1 +2;
 
-        }
+        // }
         Tile start = tiles[15][15];
         pacman = new Pacman(start.x, start.y, 1, start);
         numfood = 0;
@@ -61,6 +61,7 @@ public class World
         }
         timer = new Timer(pacman);
         timer.start();
+       
     }
 
     public static World getInstance(){
@@ -100,6 +101,7 @@ public class World
 
         }
         pacman.Draw(graphics);
+       
     }
 
     public void keyInput(int key){

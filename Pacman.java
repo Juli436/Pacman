@@ -17,11 +17,14 @@ public class Pacman
     private double x;
     private double y;
     private int r;
+    private int timeR;
 
     public static final int radius = 15;
     public Tile tile;
 
     public int points;
+    
+    public static final double speed = 0.003;
 
     public static final int pointsdot = 10;
 
@@ -34,6 +37,7 @@ public class Pacman
         this.r = r;
         //oben = 1, im Uhrzeigersinn
         this.tile = tile;
+        timeR = 0;
 
     }
 
@@ -42,31 +46,36 @@ public class Pacman
         graphics.fillOval((int)(x*Double.valueOf(Tile.size)), (int)(y*Double.valueOf(Tile.size)), radius, radius);
     }
 
-    public void PacmanBewegen() {
+    public void PacmanBewegen(int deltaTime) {
         if(!IstObenoderUntenAmRand()) {
             if(!IstWand()) {
-                if(r == 1) {
-                    y = y+0.1;
+                if(r == 3) {
+                    y = y+(deltaTime*speed);
                 }
                 else
                 {
-                    if(r == 3) {
-                        y = y-0.1;
+                    if(r == 1) {
+                        y = y-(deltaTime*speed);
                     }
                     else
                     {
                         if(r== 2) {
-                            x = x+0.1;
+                            x = x+(deltaTime*speed);
                         }
                         else
                         {
-                            x = x-0.1;
+                            x = x-(deltaTime*speed);
                         }
                     }
                 }
             }
         }
         tile = getTile();
+        timeR = timeR+ deltaTime;
+        if((timeR*speed)> 1){
+        r = World.getInstance().lastKey;
+        timeR = 0;
+        }
     }
     
     

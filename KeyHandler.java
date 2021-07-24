@@ -16,21 +16,25 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
                  System.out.println("W or UP");
+                 world.keyInput(1);
                  break;
             
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
                  System.out.println("A or LEFT");
+                 world.keyInput(4);
                  break;
             
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
                  System.out.println("S or DOWN");
+                 world.keyInput(3);
                  break;
             
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D: 
                  System.out.println("D or RIGHT");
+                 world.keyInput(2);
                  break;
         }
     }

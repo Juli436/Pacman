@@ -16,6 +16,8 @@ public class World
     public int lastKey;
     public static final int x = 30, y = 30; 
     public int numfood;
+    
+    public static final int offset = 2;
 
     public static World instance;
 
@@ -43,12 +45,12 @@ public class World
         }
 
         //adding a test wall
-        // for(int i=5; i < 26; i++){
-            // tiles[i][15].type = tiles[i][15].type -1 +2;
+        for(int i=5; i < 26; i++){
+            tiles[i][6].type = tiles[i][15].type -1 +2;
 
-        // }
+         }
         Tile start = tiles[15][15];
-        pacman = new Pacman(start.x, start.y, 1, start);
+        pacman = new Pacman(start.x, start.y, start, this);
         numfood = 0;
         for(int i=0; i < tiles.length; i++){
             for(int j=0; j < tiles.length; j++){
@@ -93,8 +95,14 @@ public class World
                 if(b[1]){
                     graphics.setColor(new Color(0, 0, 250));
                 }
+                
 
-                graphics.fillRect(i*Tile.size, j*Tile.size, Tile.size, Tile.size);
+                graphics.fillRect(i*Tile.size + offset, j*Tile.size + offset, Tile.size- offset*2, Tile.size - offset*2);
+                if(b[0]){
+                    graphics.setColor(new Color(250, 250, 250));
+                    graphics.fillOval(i*Tile.size + (Tile.size/2 - 1), j*Tile.size + (Tile.size/2 - 1), 2, 2);
+                
+                }
 
 
             }

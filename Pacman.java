@@ -19,11 +19,15 @@ public class Pacman
     private int r;
     private int timeR;
 
+    private World world;
+    private Boolean rchanged;
+
     public static final int radius = 15;
     public Tile tile;
+    public Tile lastTile;
 
     public int points;
-    
+
     public static final double speed = 0.003;
 
     public static final int pointsdot = 10;
@@ -31,58 +35,95 @@ public class Pacman
     /**
      * Constructor for objects of class Pacman
      */
-    public Pacman(double x, double y, int r, Tile tile) {
+    public Pacman(double x, double y,  Tile tile, World world) {
         this.x = x;
         this.y = y;
-        this.r = r;
+        this.r = 1;
+        this.world = world;
         //oben = 1, im Uhrzeigersinn
         this.tile = tile;
+        lastTile = world.tiles[(int)x][(int)y+1];
         timeR = 0;
+        rchanged = false;
 
     }
 
     public void Draw(Graphics graphics){
         graphics.setColor(Color.YELLOW);
-        graphics.fillOval((int)(x*Double.valueOf(Tile.size)), (int)(y*Double.valueOf(Tile.size)), radius, radius);
+        graphics.fillOval((int)(x*Double.valueOf(Tile.size)+ (Tile.size-radius)/2), (int)(y*Double.valueOf(Tile.size) +(Tile.size-radius)/2), radius, radius);
     }
 
     public void PacmanBewegen(int deltaTime) {
-        if(!IstObenoderUntenAmRand()) {
+        Boolean[] b = toBinary(tile.type);
+        if((!(b[2]&& r==1)) && (!(b[4]&& r==3)))
+        {
+
             if(!IstWand()) {
-                if(r == 3) {
-                    y = y+(deltaTime*speed);
+                rchanged = false;
+                if(b[3] && r == 2){
+                    x= 0 + x%1;
                 }
-                else
-                {
-                    if(r == 1) {
-                        y = y-(deltaTime*speed);
-                    }
-                    else
-                    {
-                        if(r== 2) {
-                            x = x+(deltaTime*speed);
-                        }
-                        else
-                        {
-                            x = x-(deltaTime*speed);
-                        }
-                    }
+                if(b[5] && r == 4){
+                    x= World.getInstance().x - x%1;
                 }
+                move(deltaTime);
+            }
+            else{
+                if(rchanged){
+                    tile = lastTile;
+                    x = tile.x;
+                    y = tile.y;
+                    rchanged = false;
+                    move(deltaTime);
+                }
+
             }
         }
         tile = getTile();
         timeR = timeR+ deltaTime;
         if((timeR*speed)> 1){
-        r = World.getInstance().lastKey;
-        timeR = 0;
+            int prevr = r;
+            r = World.getInstance().lastKey;
+            if(prevr != r){
+                rchanged = true;
+            }
+            timeR = timeR - (int)(1/speed);
         }
     }
-    
-    
-    public Tile getTile(){
-        return World.getInstance().tiles[(int)Math.round(x)][(int)Math.round(y)];    
+
+    private void move(int deltaTime){
+        if(r == 3) {
+            y = y+(deltaTime*speed);
+        }
+        else
+        {
+            if(r == 1) {
+                y = y-(deltaTime*speed);
+            }
+            else
+            {
+                if(r== 2) {
+                    x = x+(deltaTime*speed);
+                }
+                else
+                {
+                    x = x-(deltaTime*speed);
+                }
+            }
+        }
+
     }
-    
+
+    public Tile getTile(){
+        Tile t = tile;
+        tile = World.getInstance().tiles[(int)Math.round(x)][(int)Math.round(y)];
+
+        if(t != tile){
+            lastTile = t;
+        }
+        return tile; 
+    }
+
     public void fressen() {
         if(IstFood()) {
             tile.type--;
@@ -106,7 +147,7 @@ public class Pacman
             return false;
         }
     }
-    
+
     public boolean IstObenoderUntenAmRand() {
         Boolean[] b = toBinary(tile.type);
         if(b[2]||b[4])
@@ -118,7 +159,7 @@ public class Pacman
             return false;
         }
     }
-    
+
     public boolean IstWand() {
         Boolean[] b = toBinary(tile.type);
         if(b[1]) {
@@ -130,7 +171,7 @@ public class Pacman
         }
 
     }
-        
+
     private Boolean[] toBinary(int decimal){
         Boolean[] b = new Boolean[16];
         for(int i= 0; i< b.length; i++){

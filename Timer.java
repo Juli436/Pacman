@@ -31,7 +31,7 @@ public class Timer extends Thread
 
             pacman.PacmanBewegen(deltaTime);
             pacman.fressen();
-            sleep(20);
+            sleep(1);
 
         }
         catch(InterruptedException e){

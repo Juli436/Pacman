@@ -44,11 +44,360 @@ public class World
             }
         }
 
-        //adding a test wall
-        for(int i=5; i < 26; i++){
-            tiles[i][6].type = tiles[i][15].type -1 +2;
+        for(int i=0; i < 30; i++)
+        {
+            tiles[i][0].type = tiles[i][15].type -1 +2;
+            tiles[i][29].type = tiles[i][15].type -1 +2;
+        }
 
-         }
+        for(int i=0; i < 30; i++)
+        {
+            tiles[0][i].type = tiles[15][i].type -1 +2;
+            tiles[29][i].type = tiles[15][i].type -1 +2;
+        }
+        //Block left middle
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[i][2].type = tiles[i][2].type -1 +2;
+        }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[i][3].type = tiles[i][3].type -1 +2;
+        }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[i][4].type = tiles[i][4].type -1 +2;
+        }
+
+        //Block middle middle
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[i][2].type = tiles[i][2].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[i][3].type = tiles[i][3].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[i][4].type = tiles[i][4].type -1 +2;
+        }
+
+        //block middle right
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[13][i].type = tiles[13][i].type -1 +2;
+        }
+
+        //collum middle high
+        for(int i=1; i < 5;  i++)
+        {
+            tiles[15][i].type = tiles[15][i].type -1 +2;
+        }
+
+        //collum low middle above Spawn
+        for(int i=7; i < 1;  i++)
+        {
+            tiles[15][i].type = tiles[15][i].type -1 +2;
+        }
+
+        //collum high middle under Spawn
+        for(int i=18; i < 24;  i++)
+        {
+            tiles[15][i].type = tiles[15][i].type -1 +2;
+        }
+
+        //collum low middle under spawn
+        for(int i=25; i < 30;  i++)
+        {
+            tiles[15][i].type = tiles[15][i].type -1 +2;
+        }
+
+        //long collum left to spawn
+        for(int i=10; i < 18;  i++)
+        {
+            tiles[10][i].type = tiles[10][i].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[22][i].type = tiles[22][i].type -1 +2;
+        }
+
+        for(int i=17; i < 24;  i++)
+        {
+            tiles[22][i].type = tiles[22][i].type -1 +2;
+        }
+
+        for(int i=8; i < 15;  i++)
+        {
+            tiles[18][i].type = tiles[18][i].type -1 +2;
+        }
+
+        //penis shaft 1
+        for(int i=13; i < 21;  i++)
+        {
+            tiles[8][i].type = tiles[8][i].type -1 +2;
+        }
+
+        //penis shaft 2
+        for(int i=13; i < 21;  i++)
+        {
+            tiles[7][i].type = tiles[7][i].type -1 +2;
+        }
+
+        //penis balls 1
+        for(int i=19; i < 21;  i++)
+        {
+            tiles[6][i].type = tiles[6][i].type -1 +2;
+        }
+
+        //penis balls 2
+        for(int i=19; i < 21;  i++)
+        {
+            tiles[9][i].type = tiles[9][i].type -1 +2;
+        }
+
+        for(int i=25; i < 28;  i++)
+        {
+            tiles[13][i].type = tiles[13][i].type -1 +2;
+        }
+
+        for(int i=25; i < 28;  i++)
+        {
+            tiles[17][i].type = tiles[17][i].type -1 +2;
+        }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[13][i].type = tiles[13][i].type -1 +2;
+        }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[17][i].type = tiles[17][i].type -1 +2;
+        }
+        //cum
+        tiles[8][11].type = tiles[8][11].type -1 +2;
+        tiles[7][9].type = tiles[7][10].type -1 +2;
+        tiles[7][10].type = tiles[7][9].type -1 +2;
+
+        for(int i=19; i < 21;  i++)
+        {
+            tiles[9][i].type = tiles[9][i].type -1 +2;
+        }
+
+        for(int i=2; i < 6;  i++)
+        {
+            tiles[i][26].type = tiles[i][26].type -1 +2;
+            tiles[i][27].type = tiles[i][27].type -1 +2;
+            tiles[i][25].type = tiles[i][25].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[i][26].type = tiles[i][26].type -1 +2;
+            tiles[i][27].type = tiles[i][27].type -1 +2;
+            tiles[i][25].type = tiles[i][25].type -1 +2;
+        }
+
+        for(int i=19; i < 24;  i++)
+        {
+            tiles[i][26].type = tiles[i][26].type -1 +2;
+            tiles[i][27].type = tiles[i][27].type -1 +2;
+            tiles[i][25].type = tiles[i][25].type -1 +2;
+        }
+
+        for(int i=25; i < 28;  i++)
+        {
+            tiles[i][26].type = tiles[i][26].type -1 +2;
+            tiles[i][27].type = tiles[i][27].type -1 +2;
+            tiles[i][25].type = tiles[i][25].type -1 +2;
+        }
+
+        for(int i=27; i < 29;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+            tiles[i][6].type = tiles[i][6].type -1 +2;
+        }
+
+        for(int i=25; i < 29;  i++)
+        {
+            tiles[i][15].type = tiles[i][15].type -1 +2;
+            tiles[i][13].type = tiles[i][13].type -1 +2;
+        }
+
+        for(int i=1; i < 5;  i++)
+        {
+            tiles[i][15].type = tiles[i][15].type -1 +2;
+            tiles[i][13].type = tiles[i][13].type -1 +2;
+        }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[i][10].type = tiles[i][10].type -1 +2;
+            tiles[i][11].type = tiles[i][11].type -1 +2;
+            tiles[i][17].type = tiles[i][17].type -1 +2;
+            tiles[i][18].type = tiles[i][18].type -1 +2;
+            tiles[i][20].type = tiles[i][20].type -1 +2;
+            tiles[i][21].type = tiles[i][21].type -1 +2;
+        }
+
+        for(int i=24; i < 28;  i++)
+        {
+            tiles[i][10].type = tiles[i][10].type -1 +2;
+            tiles[i][11].type = tiles[i][11].type -1 +2;
+            tiles[i][17].type = tiles[i][17].type -1 +2;
+            tiles[i][18].type = tiles[i][18].type -1 +2;
+            tiles[i][20].type = tiles[i][20].type -1 +2;
+            tiles[i][21].type = tiles[i][21].type -1 +2;
+        }
+
+        for(int i=18; i < 21;  i++)
+        {
+            tiles[i][14].type = tiles[i][14].type -1 +2;
+            tiles[i][15].type = tiles[i][15].type -1 +2;
+            tiles[i][8].type = tiles[i][8].type -1 +2;
+        }
+
+        for(int i=20; i < 22;  i++)
+        {
+            tiles[i][10].type = tiles[i][10].type -1 +2;
+        }
+
+        tiles[22][12].type = tiles[22][12].type -1 +2;
+        tiles[20][12].type = tiles[20][12].type -1 +2;
+        tiles[20][11].type = tiles[20][11].type -1 +2;
+
+        for(int i=24; i < 28;  i++)
+        {
+            tiles[i][8].type = tiles[i][8].type -1 +2;
+        }
+
+        for(int i=24; i < 28;  i++)
+        {
+            tiles[i][3].type = tiles[i][3].type -1 +2;
+            tiles[i][2].type = tiles[i][2].type -1 +2;
+            tiles[i][4].type = tiles[i][4].type -1 +2;
+        }
+
+        for(int i=19; i < 23;  i++)
+        {
+            tiles[i][3].type = tiles[i][3].type -1 +2;
+            tiles[i][2].type = tiles[i][2].type -1 +2;
+            tiles[i][4].type = tiles[i][4].type -1 +2;
+        }
+
+        for(int i=10; i < 14;  i++)
+        {
+            tiles[i][8].type = tiles[i][8].type -1 +2;
+        }
+
+        for(int i=1; i < 3;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+        }
+
+        for(int i=4; i < 5;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+        }
+
+        for(int i=6; i < 8;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+        }
+
+        for(int i=10; i < 14;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+        }
+
+        for(int i=17; i < 20;  i++)
+        {
+            tiles[i][23].type = tiles[i][23].type -1 +2;
+        }
+
+        for(int i=20; i < 23;  i++)
+        {
+            tiles[i][21].type = tiles[i][21].type -1 +2;
+        }
+
+        for(int i=18; i < 21;  i++)
+        {
+            tiles[i][17].type = tiles[i][17].type -1 +2;
+        }
+
+        for(int i=17; i < 20;  i++)
+        {
+            tiles[20][i].type = tiles[20][i].type -1 +2;
+        }
+
+        for(int i=19; i < 20;  i++)
+        {
+            tiles[18][i].type = tiles[18][i].type -1 +2;
+        }
+
+        for(int i=19; i < 22;  i++)
+        {
+            tiles[13][i].type = tiles[13][i].type -1 +2;
+            tiles[12][i].type = tiles[12][i].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[15][i].type = tiles[15][i].type -1 +2;
+        }
+
+        // for(int i=14; i < 17;  i++)
+        // {
+            // tiles[i][14].type = tiles[i][14].type -1 +2;
+            // tiles[i][15].type = tiles[i][14].type -1 +2;
+            // tiles[i][13].type = tiles[i][14].type -1 +2;
+            // tiles[i][16].type = tiles[i][16].type -1 +2;
+        // }
+
+        for(int i=2; i < 5;  i++)
+        {
+            tiles[i][6].type = tiles[i][6].type -1 +2;
+            tiles[i][8].type = tiles[i][7].type -1 +2;
+            tiles[i][7].type = tiles[i][8].type -1 +2;
+        }
+
+        for(int i=7; i < 12;  i++)
+        {
+            tiles[i][6].type = tiles[i][6].type -1 +2;
+        }
+
+        tiles[23][14].type = tiles[23][14].type -1 +2;
+        tiles[22][14].type = tiles[22][14].type -1 +2;
+        tiles[13][6].type = tiles[13][6].type -1 +2;
+        tiles[15][6].type = tiles[15][6].type -1 +2;
+        tiles[17][6].type = tiles[17][6].type -1 +2;
+
+        for(int i=19; i < 21;  i++)
+        {
+            tiles[i][6].type = tiles[i][6].type -1 +2;
+        }
+
+        for(int i=24; i < 26;  i++)
+        {
+            tiles[i][6].type = tiles[i][6].type -1 +2;
+        }
+
+        for(int i=10; i < 14;  i++)
+        {
+            tiles[12][i].type = tiles[12][i].type -1 +2;
+        }
+
+        for(int i=15; i < 18;  i++)
+        {
+            tiles[12][i].type = tiles[12][i].type -1 +2;
+        }
         Tile start = tiles[15][15];
         pacman = new Pacman(start.x, start.y, start, this);
         numfood = 0;

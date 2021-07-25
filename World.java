@@ -400,6 +400,33 @@ public class World
         {
             tiles[12][i].type = tiles[12][i].type -1 +2;
         }
+        
+        //tell me why this fixes the food problem lol. 
+        //I have no clue why this fixes it
+        //my best guess is it changes the value of every
+        //tile to the one of tile 0;0
+        tiles[0][0].type = tiles[0][0].type -1;
+        tiles[15][0].type = tiles[0][0].type ;
+        tiles[29][0].type = tiles[0][0].type;
+        tiles[0][29].type = tiles[0][0].type ;
+        tiles[15][29].type = tiles[0][0].type ;
+        tiles[29][29].type = tiles[0][0].type ;
+        tiles[9][19].type = tiles[0][0].type ;
+        tiles[9][20].type = tiles[0][0].type ;
+        tiles[22][21].type = tiles[0][0].type ;
+        tiles[20][17].type = tiles[0][0].type ;
+        tiles[18][14].type = tiles[0][0].type ;
+        tiles[18][8].type = tiles[0][0].type ;
+        tiles[2][7].type = tiles[0][0].type ;
+        tiles[3][7].type = tiles[0][0].type ;
+        tiles[4][7].type = tiles[0][0].type ;
+        tiles[7][10].type = tiles[0][0].type ;
+        tiles[13][3].type = tiles[0][0].type ;
+        tiles[13][2].type = tiles[0][0].type ;
+        tiles[13][4].type = tiles[0][0].type ;
+        
+        
+        
         Tile start = tiles[15][15];
         pacman = new Pacman(start.x, start.y, start, this);
         numfood = 0;

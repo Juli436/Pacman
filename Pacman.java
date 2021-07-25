@@ -49,8 +49,9 @@ public class Pacman
     }
 
     public void Draw(Graphics graphics){
-        graphics.setColor(Color.YELLOW);
-        graphics.fillOval((int)(x*Double.valueOf(Tile.size)+ (Tile.size-radius)/2), (int)(y*Double.valueOf(Tile.size) +(Tile.size-radius)/2), radius, radius);
+        //graphics.setColor(Color.YELLOW);
+        //graphics.fillOval((int)(x*Double.valueOf(Tile.size)+ (Tile.size-radius)/2), (int)(y*Double.valueOf(Tile.size) +(Tile.size-radius)/2), radius, radius);
+        PacmanRender.getInstance().Draw(graphics,(int)(x*Double.valueOf(Tile.size)),(int)(y*Double.valueOf(Tile.size)));  
     }
 
     public void PacmanBewegen(int deltaTime) {
@@ -95,20 +96,24 @@ public class Pacman
     private void move(int deltaTime){
         if(r == 3) {
             y = y+(deltaTime*speed);
+            PacmanRender.getInstance().setSpriteType('s');  
         }
         else
         {
             if(r == 1) {
                 y = y-(deltaTime*speed);
+                PacmanRender.getInstance().setSpriteType('n');  
             }
             else
             {
                 if(r== 2) {
                     x = x+(deltaTime*speed);
+                    PacmanRender.getInstance().setSpriteType('e');  
                 }
                 else
                 {
                     x = x-(deltaTime*speed);
+                    PacmanRender.getInstance().setSpriteType('w');  
                 }
             }
         }
@@ -129,6 +134,7 @@ public class Pacman
         if(IstFood()) {
             tile.type--;
             points = points + pointsdot;
+            PacmanRender.getInstance().setSpriteType('a');  
         }
     }
 

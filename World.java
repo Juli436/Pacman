@@ -17,7 +17,7 @@ public class World
     public static final int x = 30, y = 30; 
     public int numfood;
     
-    public static final int offset = 2;
+    public static final int offset = 1;
 
     public static World instance;
 
@@ -88,10 +88,10 @@ public class World
         }
 
         //block middle right
-        for(int i=2; i < 5;  i++)
-        {
-            tiles[13][i].type = tiles[13][i].type -1 +2;
-        }
+        // for(int i=2; i < 5;  i++)
+        // {
+            // tiles[13][i].type = tiles[13][i].type -1 +2;
+        // }
 
         //collum middle high
         for(int i=1; i < 5;  i++)

@@ -353,6 +353,8 @@ public class World
             tiles[15][i].type = tiles[15][i].type -1 +2;
         }
 
+        //Spawn block (optional):
+        
         // for(int i=14; i < 17;  i++)
         // {
             // tiles[i][14].type = tiles[i][14].type -1 +2;

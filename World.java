@@ -46,14 +46,14 @@ public class World
 
         for(int i=0; i < 30; i++)
         {
-            tiles[i][0].type = tiles[i][15].type -1 +2;
-            tiles[i][29].type = tiles[i][15].type -1 +2;
+            tiles[i][0].type = tiles[i][0].type -1 +2;
+            tiles[i][29].type = tiles[i][29].type -1 +2;
         }
 
         for(int i=0; i < 30; i++)
         {
-            tiles[0][i].type = tiles[15][i].type -1 +2;
-            tiles[29][i].type = tiles[15][i].type -1 +2;
+            tiles[0][i].type = tiles[0][i].type -1 +2;
+            tiles[29][i].type = tiles[29][i].type -1 +2;
         }
         //Block left middle
         for(int i=2; i < 5;  i++)
@@ -405,25 +405,31 @@ public class World
         //I have no clue why this fixes it
         //my best guess is it changes the value of every
         //tile to the one of tile 0;0
-        tiles[0][0].type = tiles[0][0].type -1;
-        tiles[15][0].type = tiles[0][0].type ;
-        tiles[29][0].type = tiles[0][0].type;
-        tiles[0][29].type = tiles[0][0].type ;
-        tiles[15][29].type = tiles[0][0].type ;
-        tiles[29][29].type = tiles[0][0].type ;
-        tiles[9][19].type = tiles[0][0].type ;
-        tiles[9][20].type = tiles[0][0].type ;
-        tiles[22][21].type = tiles[0][0].type ;
-        tiles[20][17].type = tiles[0][0].type ;
-        tiles[18][14].type = tiles[0][0].type ;
-        tiles[18][8].type = tiles[0][0].type ;
-        tiles[2][7].type = tiles[0][0].type ;
-        tiles[3][7].type = tiles[0][0].type ;
-        tiles[4][7].type = tiles[0][0].type ;
-        tiles[7][10].type = tiles[0][0].type ;
-        tiles[13][3].type = tiles[0][0].type ;
-        tiles[13][2].type = tiles[0][0].type ;
-        tiles[13][4].type = tiles[0][0].type ;
+        tiles[0][0].type--;
+        //tiles[15][0].type = tiles[15][0].type;
+        tiles[29][0].type--;
+        tiles[0][29].type--;
+        tiles[15][29].type--;
+        tiles[29][29].type--;
+        tiles[9][19].type--;
+        tiles[9][20].type--;
+        tiles[22][21].type--;
+        tiles[20][17].type--;
+        tiles[18][14].type--;
+        tiles[18][8].type--;
+        tiles[2][7].type--;
+        tiles[3][7].type--;
+        tiles[4][7].type--;
+        tiles[7][10].type--;
+        tiles[13][3].type--;
+        tiles[13][2].type--;
+        tiles[13][4].type--;
+        
+        
+        tiles[0][14].type = tiles[0][14].type -2;
+        tiles[29][14].type = tiles[29][14].type -2;
+        
+        System.out.println(tiles[0][14].type);
         
         
         

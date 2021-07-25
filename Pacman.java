@@ -28,7 +28,7 @@ public class Pacman
 
     public int points;
 
-    public static final double speed = 0.003;
+    public static final double speed = 0.0045;
 
     public static final int pointsdot = 10;
 
@@ -62,6 +62,7 @@ public class Pacman
                 rchanged = false;
                 if(b[3] && r == 2){
                     x= 0 + x%1;
+                    
                 }
                 if(b[5] && r == 4){
                     x= World.getInstance().x - x%1;
